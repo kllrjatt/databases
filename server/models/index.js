@@ -8,7 +8,7 @@ module.exports = {
       var dbQuery = 'select messages.id, messages.text, messages.roomname, users.username from messages left outer join users on (messages.userid = users.id) order by messages.id desc;';
       // use query  and pass in the call back 
       db.query(dbQuery, function (error, result) {
-        callback(error, results);
+        callback(error, result);
       });
     }, // a function which produces all the messages
     post: function (callback) {
@@ -24,13 +24,13 @@ module.exports = {
     get: function (callback) {
       var dbQuery = 'select * from users';
       db.query(dbQuery, function (error, result) {
-        callback(error, results);
+        callback(error, result);
       });
     },
     post: function (callback) {
       var dbQuery = 'insert into users (username) value (?);';
       db.query(dbQuery, parameters, function (error, result) {
-        callback(error, results);
+        callback(error, result);
       });
     }
   }

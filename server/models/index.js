@@ -5,7 +5,7 @@ module.exports = {
     // get and post take a call back to execute the data 
     get: function (callback) {
       // write db query 
-      var dbQuery = '';
+      var dbQuery = 'select * from messages inner join users on (messages.userid = users.id) order by messages.id desc';
       // use query  and pass in the call back 
       db.query(dbQuery, function (error, result) {
         callback(error, results);
@@ -22,7 +22,7 @@ module.exports = {
   users: {
     // Ditto as above.
     get: function (callback) {
-      var dbQuery = '';
+      var dbQuery = 'select * from users';
       db.query(dbQuery, function (error, result) {
         callback(error, results);
       });

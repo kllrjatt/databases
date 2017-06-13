@@ -12,8 +12,8 @@ module.exports = {
       });
     }, // a function which produces all the messages
     post: function (callback) {
-      var dbQuery = '';
-      db.query(dbQuery, function (error, result) {
+      var dbQuery = 'insert into messages (text, userid, roomname) value (?,(select id from users where username = ?),?);';
+      db.query(dbQuery, parameters, function (error, result) {
         callback(error, result);
       });
     } // a function which can be used to insert a message into the database
@@ -28,8 +28,8 @@ module.exports = {
       });
     },
     post: function (callback) {
-      var dbQuery = '';
-      db.query(dbQuery, function (error, result) {
+      var dbQuery = 'insert into users (username) value (?);';
+      db.query(dbQuery, parameters, function (error, result) {
         callback(error, results);
       });
     }

@@ -2,16 +2,58 @@ CREATE DATABASE chat;
 
 USE chat;
 
-CREATE TABLE messages (
-  /* Describe your table here.*/
+-- ---
+-- Globals
+-- ---
+
+-- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+-- SET FOREIGN_KEY_CHECKS=0;
+
+-- ---
+-- Table 'Messages'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `Messages`;
+
+CREATE TABLE `Messages`
+(
+  id int NOT NULL AUTO_INCREMENT,
+  userid int NOT NULL,
+  text varchar
+(200)  NOT NULL,
+  roomname varchar
+(20),
+  PRIMARY KEY
+(ID)
 );
 
-/* Create other tables and define schemas for them here! */
+-- ---
+-- Table 'Users'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `Users`;
+
+CREATE TABLE `Users`
+ id        int    NOT NULL AUTO_INCREMENT,
+  username  varchar
+(40)   NOT NULL,
+  PRIMARY KEY
+(ID);
 
 
 
 
-/*  Execute this file from the command line by typing:
- *    mysql -u root < server/schema.sql
- *  to create the database and the tables.*/
+-- ALTER TABLE `Messages` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `Users` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+
+-- ---
+-- Test Data
+-- ---
+
+-- INSERT INTO `Messages` (`id`,`text`,`createdAt`,`id_Users`,`id_Rooms`) VALUES
+-- ('','','','','');
+-- INSERT INTO `Users` (`id`,`username`) VALUES
+-- ('','');

@@ -11,7 +11,7 @@ module.exports = {
         callback(error, result);
       });
     }, // a function which produces all the messages
-    post: function (callback) {
+    post: function (parameters, callback) {
       var dbQuery = 'insert into messages (text, userid, roomname) value (?,(select id from users where username = ?),?);';
       db.query(dbQuery, parameters, function (error, result) {
         callback(error, result);
@@ -27,7 +27,7 @@ module.exports = {
         callback(error, result);
       });
     },
-    post: function (callback) {
+    post: function (parameters, callback) {
       var dbQuery = 'insert into users (username) value (?);';
       db.query(dbQuery, parameters, function (error, result) {
         callback(error, result);

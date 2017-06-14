@@ -7,7 +7,6 @@ module.exports = {
         if (error) {
           console.log(error);
         }
-        console.log(result);
         response.json(result);
         //response.end();
       });
@@ -15,6 +14,7 @@ module.exports = {
     }, // a function which handles a get request for all messages
     post: function (request, response) {
       var parameters = [request.body.message, request.body.username, request.body.roomname];
+      console.log(parameters);
       models.messages.post(parameters, function (error, result) {
         if (error) {
           console.log(error);

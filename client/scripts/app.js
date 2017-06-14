@@ -44,11 +44,11 @@ var app = {
     $.ajax({
       url: app.server,
       type: 'POST',
-      data: JSON.stringify(message),
+      data: message,
       success: function (data) {
         // Clear messages input
         app.$message.val('');
-
+        console.log(message, 'message');
         // Trigger a fetch to update the messages, pass true to animate
         app.fetch();
       },
@@ -65,7 +65,7 @@ var app = {
       data: { order: '-createdAt' },
       contentType: 'application/json',
       success: function (data) {
-
+        console.log(data, 'fetch');
         // Don't bother if we have nothing to work with
         if (!data.results || !data.results.length) { return; }
 

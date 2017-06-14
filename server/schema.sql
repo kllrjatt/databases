@@ -19,7 +19,7 @@ CREATE TABLE messages
   AUTO_INCREMENT,
   userid int NOT NULL,
   text varchar
-  (200)  NOT NULL,
+  (200),
   roomname varchar
   (20),
   PRIMARY KEY
